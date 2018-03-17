@@ -215,9 +215,28 @@ private:
 	Filling * filling;
 };
 
+//************builder*********************************
+
+class IPizzaBuilder {
+protected:
+	Pizza* pizza;
+
+public:
+	virtual ~IPizzaBuilder()
+	{}
+	virtual Pizza* GetPizza() = 0;
+	virtual void Create_Pizza() = 0;
+	virtual void BuildSauce(Sauce* sauce) = 0;
+	virtual void BuildDough(Dough* dough) = 0;
+	virtual void BuildFilling(Filling* filling) = 0;
+
+};
+
+
+
 //Custom Pizza builder*********************************
 
-class CustomPizzaBuilder {
+class CustomPizzaBuilder : public IPizzaBuilder{
 protected:
 	Pizza *pizza;
 
